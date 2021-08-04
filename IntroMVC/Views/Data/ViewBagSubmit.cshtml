@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewBagSubmit</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-6">
+            <h4>Results from ViewData</h4>
+            @Html.Raw(ViewBag.name); <br />
+            @Html.Raw(ViewBag.address);<br />
+            @Html.Raw(ViewBag.sclass);<br />
+            @Html.Raw(ViewBag.year);
+        </div>
+    </div>
+</body>
+</html>

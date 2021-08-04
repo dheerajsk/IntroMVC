@@ -23,5 +23,32 @@ namespace IntroMVC.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        public ViewResult ViewBagSubmit()
+        {
+            ViewBag.name = Request.Form["name"];
+            ViewBag.address = Request.Form["address"];
+            ViewBag.sclass = Request.Form["class"];
+            ViewBag.year = Request.Form["year"];
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult TempDataRedirect()
+        {
+            TempData["name"] = Request.Form["name"].ToString();
+            TempData["address"] = Request.Form["address"].ToString();
+            TempData["class"] = Request.Form["class"].ToString();
+            TempData["year"] = Request.Form["year"].ToString();
+
+            return RedirectToAction("TempDataSubmit");
+        }
+
+        public ViewResult TempDataSubmit()
+        {
+            var model = TempData["name"];
+            return View();
+        }
     }
 }
